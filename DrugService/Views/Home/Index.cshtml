@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Сервис заказа лекарств в аптеку";
+}
+
+<div>
+    <h3>Лекарства</h3>
+    <table>
+        <tr>
+            <td>Название</td>
+            <td>Производитель</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+        @foreach (var b in ViewBag.Drugs) //проход по коллекциям лекарств
+        {
+            <tr>
+                <td>@b.Name</td>
+                <td>@b.Manufacturer</td>
+                <td>@b.Price</td>
+                <td><p><a href="/Home/Order/@b.Id">Заказать</a></p></td>
+            </tr>
+        }
+
+    </table>
+
+    <a href="/Files/price.xls">Скачать прайс-лист</a>
+
+
+</div>
+
+
+

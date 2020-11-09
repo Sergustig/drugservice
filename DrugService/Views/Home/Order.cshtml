@@ -1,0 +1,32 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link type="text/css" rel="stylesheet" href="../../Content/Site.css" />
+    <title>Заказ</title>
+</head>
+<body>
+    <div>
+        <h3>Форма заказа лекраств</h3>
+        <form method="post" action="">
+            <input type="hidden" value="@ViewBag.DrugID" name="DrugID" />
+            <table>
+                <tr>
+                    <td><p>Введите название аптеки </p></td>
+                    <td><input type="text" name="DrugStore" /></td>
+                </tr>
+                <tr>
+                    <td><p>Введите адрес :</p></td>
+                    <td>
+                        <input type="text" name="Address" />
+                    </td>
+                </tr>
+                <tr><td><input type="submit" value="Отправить" /></td><td></td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
