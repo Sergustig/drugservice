@@ -10,22 +10,48 @@
 <body>
     <div>
         <h3>Форма заказа лекраств</h3>
-        <form method="post" action="">
-            <input type="hidden" value="@ViewBag.DrugID" name="DrugID" />
+
+            @using(Html.BeginForm("Order", "Home", FormMethod.Post))
+            {
+
+            
+           
+            @Html.Hidden("DrugID", ViewBag.DrugID as string)
             <table>
                 <tr>
                     <td><p>Введите название аптеки </p></td>
-                    <td><input type="text" name="DrugStore" /></td>
-                </tr>
+                    <td>
+                   
+                    @Html.TextBox("DrugStore", "Введите наименование аптеки")
+                    </td>
+                </tr> 
                 <tr>
                     <td><p>Введите адрес :</p></td>
                     <td>
-                        <input type="text" name="Address" />
+                        @*<input type="text" name="Address" />*@
+                        @Html.TextBox("Address", "Введите адрес доставки")
+                    </td>
+                <tr>
+                    <td><p>Введите комментарии :</p></td>
+                    <td>
+                        @Html.TextArea("text", "Добавьте примечание", 5, 50, null)
                     </td>
                 </tr>
-                <tr><td><input type="submit" value="Отправить" /></td><td></td></tr>
+
+                <tr>
+                    <td><p>Самовывоз</p></td>
+                    <td>
+                        @Html.CheckBox("Enable", false)
+                    </td>
+                </tr>
+
+                <tr><td>
+                    <input type="submit" value="Отправить" />
+                    @*@Html.RadioButton("submit", "Отправить")*@
+                    </td><td></td></tr>
             </table>
-        </form>
+            }
+
     </div>
 </body>
 </html>

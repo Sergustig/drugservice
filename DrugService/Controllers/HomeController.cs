@@ -15,9 +15,16 @@ namespace DrugService.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<Drug> drugs = db.Drugs; // IEnumerable - интерфейс для получения набора лекарств
-            ViewBag.Drugs = drugs; // передача в представление
-            return View();
+            //IEnumerable<Drug> drugs = db.Drugs; // IEnumerable - интерфейс для получения набора лекарств
+            //ViewBag.Drugs = drugs; // передача в представление
+            return View(db.Drugs);
+        }
+
+        public ActionResult GetManufacturers()
+        {
+            string[] manufacturers = new string[] { "Биотон", "Диафарм", "ФармВилар", "Мосхимфармпрепараты" };
+            return View(manufacturers);
+
         }
 
         [HttpGet]
